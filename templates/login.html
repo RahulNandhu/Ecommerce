@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+<div class="container-fluid">
+    <center>
+        <form method="post" style="width:60%;">
+            {%csrf_token%}
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" name="uname" placeholder="Enter username.." class="form-control">
+            </div>
+             <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" name="pass" placeholder="Enter Password.." class="form-control">
+            </div>
+            <button class="btn btn-outline-light btn-info">Login</button>
+        </form>
+    </center>
+</div>
+{%endblock%}

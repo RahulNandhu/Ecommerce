@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+<div class="m-2 text-center">
+    <table class="table table-bordered">
+        <tr class="text-center fw-bold">
+            <th>Product</th>
+            <th>Name</th>
+            <th>price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Ordered On</th>
+            <th>Delivery Status</th>
+        </tr>
+        {%for i in j%}
+        <tr>
+            <td><img src="{{i.product.image.url}}" height="50px;" width="50px;"></td>
+            <td>{{i.product.name}}</td>
+            <td>{{i.product.price}}</td>
+            <td>{{i.no_of_item}}</td>
+            <td>{{i.Total}}</td>
+            <td>{{i.date_added}}</td>
+            <td>{{i.delivery_status}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+{%endblock%}

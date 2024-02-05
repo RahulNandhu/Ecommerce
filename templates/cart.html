@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+<div class="container-fluid">
+    <div class="row m-3">
+
+        <div class="col-md-7">
+            <table class="table table-bordered">
+               <tr>
+                    <th class="text-center" colspan="7">Cart item</th>
+               </tr>
+                {%for i in cart%}
+                <tr>
+                    <td><img src="{{i.product.image.url}}" width="50px;" height="50px;"></td>
+                    <td class="fw-bold">{{i.product.name}}</td>
+                    <td class="fw-bold">Quantity: <b>{{i.quantity}}</b></td>
+                    <td class="fw-bold">Price : <b>{{i.product.price}}</b></td>
+                    <td class="fw-bold">total :{{i.total}} </td>
+                    <td style="display:block;" class="fs-5">
+                        <a href="{% url 'cart:add_cart' i.product.name %}"><i class="fa-solid fa-plus text-danger"></i></a>
+                        <a href="{% url 'cart:remove_cart' i.product.name %}"><i class="fa-solid fa-minus text-danger"></i></a>
+                        <a href="{% url 'cart:delete_cart' i.product.name %}"><i class="fa-solid fa-trash text-danger"></i></a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+
+        <div class="col-md-5">
+            <table class="table table-bordered">
+                <tr>
+                    <th class="text-center">Checkout</th>
+                </tr>
+                <tr>
+                    <td class="fw-bold">Total Amount : <b>{{total}}</b></td>
+                </tr>
+            </table>
+            <a class="btn btn-danger" href="{% url 'cart:order' %}">place order</a>
+            <a class="btn btn-success" style="position:absolute; right:42px;" href="{%url 'shop:home' %}">Continue shopping</a>
+        </div>
+
+    </div>
+</div>
+{%endblock%}

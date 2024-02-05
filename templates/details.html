@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+<div class="container-fluid m-3" style="margin-bottom:80px;">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="{{p.image.url}}" width="100%" height="400px;">
+        </div>
+
+        <div class="col-md-9 p-2">
+            <div>
+                <h5>{{p.name}}</h5>
+                <p>{{p.desc}}</p>
+            </div>
+            <div class="text-center">
+                <a class="btn btn-outline-light btn-success" href="{% url 'cart:addtocart' p.name %}">Add to cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
