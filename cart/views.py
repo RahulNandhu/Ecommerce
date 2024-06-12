@@ -96,6 +96,7 @@ def order(request):
                     pr=Order.objects.create(user=u,product=i.product,amount=i.product.price,no_of_item=i.quantity,address=a,phone=p,order_status='ordered')
                     pr.save()
                     msg='item ordered'
+                cart.delete()
                 return render(request,template_name='order_clar.html',context={'msg':msg})
 
             else:
